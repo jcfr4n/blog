@@ -1,6 +1,6 @@
 services:
     php:
-        container_name: my_php
+        container_name: blog_php
         build: 
             context: ./
             dockerfile: Dockerfile
@@ -19,10 +19,10 @@ services:
                 client_port=9003
         user: "1000:1000"
         networks:
-            - my_network
+            - blog_network
     nginx:
         image: nginx:1.13.8
-        container_name: my_nginx
+        container_name: blog_nginx
         ports:
             - 8000:80
         volumes:
@@ -32,11 +32,11 @@ services:
         depends_on:
             - php
         networks:
-            - my_network
+            - blog_network
  
     mysql:
         image: mysql
-        container_name: my_mysql
+        container_name: blog_mysql
         env_file:
         - ".env"
         volumes:
@@ -51,10 +51,10 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         networks:
-            - my_network
+            - blog_network
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        container_name: my_phpmyadmin
+        container_name: blog_phpmyadmin
         ports:
             - 8080:80
         environment:
@@ -65,7 +65,7 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     mailhog:
         image: mailhog/mailhog
-        container_name: my_mailhog
+        container_name: blog_mailhog
         ports:
             - 8025:8025
             - 1025:1025
@@ -74,7 +74,7 @@ services:
         depends_on:
             - php
         networks:
-            - my_network
+            - blog_network
 networks:
-    my_network:
+    blog_network:
         driver: bridge
