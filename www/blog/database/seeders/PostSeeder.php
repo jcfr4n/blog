@@ -20,5 +20,7 @@ class PostSeeder extends Seeder
         $post->is_active = true;
         $post->save();
 
+        Post::factory(50)->create();
+
     }
 }
