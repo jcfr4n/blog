@@ -57,6 +57,8 @@ RUN adduser -u 1000 -G web -D -s /bin/sh web
 WORKDIR /var/www/html
 
 RUN chown -R web:web /var/www/html
+RUN chown -R web:web /usr/local/etc/php/conf.d
+RUN chown web:web /var/log/xdebug.log
 
 # USER web
 
