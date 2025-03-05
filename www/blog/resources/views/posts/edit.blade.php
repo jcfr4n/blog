@@ -1,8 +1,8 @@
 <x-app-layout>
-    <a href="/posts/{{ $post->id }}">Volver a Posts</a>
+    <a href="{{ route('posts.index', [$post->id]) }}">Volver a Posts</a>
     <br>
     <h1>Formulario para la creación de un nuevo post</h1>
-    <form action="/posts/create" method="POST">
+    <form action="{{ route('posts.update', [$post->id]) }}" method="POST">
         @csrf
         <input type="hidden" name="_method" value="PATCH">
         <input type="hidden" name="id" value="{{ $post->id }}">

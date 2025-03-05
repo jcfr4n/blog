@@ -10,11 +10,11 @@
 </head>
 <body>
     <h1>Aquí se mostrarán todos los posts</h1>
-    <a href="/posts/create">Crear post</a>
+    <a href="{{ route('posts.create') }}">Crear post</a>
     <ul>
         @foreach ($posts as $post)
             <li>
-                <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
+                <a href="{{ route('posts.show', [$post->id]) }}">{{ $post->title }}</a>
             </li>
         @endforeach
     </ul>
