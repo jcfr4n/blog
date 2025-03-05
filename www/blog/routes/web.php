@@ -11,9 +11,17 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/posts/create', [PostController::class, 'create']);
 
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::post('/posts/create', [PostController::class, 'store']);
+
+Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
 
 Route::get('/posts/{post}/{category}', [PostController::class, 'showByCategory']);
+
+Route::get('/posts/{post}', [PostController::class, 'show']);
+
+Route::patch('/posts/{post}', [PostController::class, 'update']);
+
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 Route::get('prueba', function () {
 
