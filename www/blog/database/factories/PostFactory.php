@@ -18,6 +18,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake('es')->sentence(6, true),
+            'slug' => fake('es')->slug(6, true),
             'content' => fake('es')->paragraph(3, true),
             'category' => fake('es')->word(),
             'is_active' => true,

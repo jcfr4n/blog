@@ -18,4 +18,9 @@ class Post extends Model
         'is_active'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'title';
+    }
+
 }
