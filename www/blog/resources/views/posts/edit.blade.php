@@ -13,9 +13,8 @@
         <input type="text" name="category" id="category" value="{{ $post->category }}">
         <br>
         <label for="content">Contenido</label>
-        <textarea name="content" id="content" cols="20" rows="5">{{ $post->category }}</textarea>
+        <textarea name="content" id="content" cols="20" rows="5">{{ $post->content }}</textarea>
         <br>
         <button type="submit">Actualizar post</button>
     </form>
-
 </x-app-layout>
